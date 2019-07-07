@@ -18,6 +18,12 @@ succesButton.onclick = () => {
 }
 
 let createButton = document.getElementsByClassName('btn-create')[0]
+let deleteButtons = document.getElementsByClassName('btn-delete')
+
+const deleteProduct = e => {
+	let child = e.currentTarget.parentNode
+	child.parentNode.removeChild(child)
+}
 
 createButton.onclick = () => {
 	let inputs = document.getElementsByClassName('create-input')
@@ -51,18 +57,5 @@ createButton.onclick = () => {
 		deleteButtons[i].onclick = e => {
 			deleteProduct(e)
 		}
-	}
-}
-
-const deleteProduct = e => {
-	let child = e.currentTarget.parentNode
-	child.parentNode.removeChild(child)
-}
-
-let deleteButtons = document.getElementsByClassName('btn-delete')
-
-for (let i = 0; i < deleteButtons.length; i++) {
-	deleteButtons[i].onclick = e => {
-		deleteProduct(e)
 	}
 }
