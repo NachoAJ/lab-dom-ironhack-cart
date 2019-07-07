@@ -1,7 +1,7 @@
 let succesButton = document.getElementsByClassName('btn-success')[0]
 
 succesButton.onclick = () => {
-	products = document.getElementsByClassName('product')
+	let products = document.getElementsByClassName('product')
 	let bigTotalPrice = 0
 	for (let i = 0; i < products.length; i++) {
 		let price = document.getElementsByClassName('price')[i].innerHTML
@@ -15,15 +15,6 @@ succesButton.onclick = () => {
 	let child = document.getElementById('big-total-price')
 	child.innerHTML = bigTotalPrice
 	child.parentNode.appendChild(child)
-}
-
-let deleteButtons = document.getElementsByClassName('btn-delete')
-
-for (let i = 0; i < deleteButtons.length; i++) {
-	deleteButtons[i].onclick = e => {
-		let child = e.currentTarget.parentNode
-		child.parentNode.removeChild(child)
-	}
 }
 
 let createButton = document.getElementsByClassName('btn-create')[0]
@@ -54,4 +45,22 @@ createButton.onclick = () => {
 	newProduct.appendChild(newQuantity)
 	newProduct.appendChild(newTotalPrice)
 	newProduct.appendChild(newButton)
+	for (let i = 0; i < deleteButtons.length; i++) {
+		deleteButtons[i].onclick = e => {
+			deleteProduct(e)
+		}
+	}
+}
+
+const deleteProduct = e => {
+	let child = e.currentTarget.parentNode
+	child.parentNode.removeChild(child)
+}
+
+let deleteButtons = document.getElementsByClassName('btn-delete')
+
+for (let i = 0; i < deleteButtons.length; i++) {
+	deleteButtons[i].onclick = e => {
+		deleteProduct(e)
+	}
 }
