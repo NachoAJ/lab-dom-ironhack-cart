@@ -27,6 +27,7 @@ createButton.onclick = () => {
 	let newLabel = document.createElement('label')
 	let newQuantity = document.createElement('input')
 	let newTotalPrice = document.createElement('span')
+	let newDiv = document.createElement('div')
 	let newButton = document.createElement('button')
 	newProduct.className = 'flexbox product'
 	newPrice.className = 'price'
@@ -43,7 +44,8 @@ createButton.onclick = () => {
 	newProduct.appendChild(newPrice)
 	newProduct.appendChild(newLabel)
 	newProduct.appendChild(newQuantity)
-	newProduct.appendChild(newTotalPrice)
+	newProduct.appendChild(newDiv)
+	newDiv.appendChild(newTotalPrice)
 	newProduct.appendChild(newButton)
 	for (let i = 0; i < deleteButtons.length; i++) {
 		deleteButtons[i].onclick = e => {
